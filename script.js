@@ -35,7 +35,7 @@ document.getElementById(
 ).href = `https://youtube.com/channel/${id}?sub_confirmation=1`;
 
 setInterval(() => {
-  fetch(`https://ests.sctools.org/api/get/`)
+  fetch(`https://ests.sctools.org/api/get/${s}`)
     .then((res) => res.json())
     .then((data) => {
       document.getElementById("name").textContent = info.name;
