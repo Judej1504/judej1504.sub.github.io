@@ -1,3 +1,7 @@
+const params = new URLSearchParams(window.location.search);
+var id = params.get("id") || "UCX6OQ3DkcsbYNE6H8uQQuVA";
+var url = `https://ests.sctools.org/api/get/`; 
+
 function GetGoal(count2) {
   var count = parseFloat(count2);
   var t = parseFloat(count2);
@@ -35,10 +39,10 @@ document.getElementById(
 ).href = `https://youtube.com/channel/${id}?sub_confirmation=1`;
 
 setInterval(() => {
-  fetch(`https://ests.sctools.org/api/get/${s}`)
+  fetch(url + a)
     .then((res) => res.json())
     .then((data) => {
-      document.getElementById("name").textContent = info.name;
+      document.getElementById("name").textContent = data.info.name;
       document.querySelector(
         '[data-icon="zondicons:checkmark"]'
       ).style.display = data.isStudio ? "block" : "none";
@@ -48,8 +52,8 @@ setInterval(() => {
         data.snippet.thumbnails.high.url ||
         data.snippet.thumbnails.medium.url ||
         data.snippet.thumbnails.default.url;
-      image.alt = info.avatar;
-      document.getElementById("subscribers").innerHTML = stats.estCount;
+      image.alt = data.info.avatar;
+      document.getElementById("subscribers").innerHTML = data.stats.estCount;
       document.getElementById("goal").innerHTML = GetGoal(data.estSubCount);
       document.getElementById(
         "goalText"
@@ -57,7 +61,19 @@ setInterval(() => {
         GetGoal2(data.estSubCount)
       )}`;
     });
+}
+
+setTimeout(() => {
+	getdata(id);
+}, 100);
+
+setTimeout(() => {
+	getdata(id);
+}, 500);
+setInterval(() => {
+	getdata(id);
 }, 2000);
+
 
 function toggleLightMode() {
   document.body.classList.toggle("light");
