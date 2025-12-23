@@ -39,7 +39,7 @@ document.getElementById(
 ).href = `https://youtube.com/channel/${id}?sub_confirmation=1`;
 
 setInterval(() => {
-  fetch(url + a)
+  fetch(`https://ests.sctools.org/api/get/${s}`)
     .then((res) => res.json())
     .then((data) => {
       document.getElementById("name").textContent = data.info.name;
@@ -61,19 +61,7 @@ setInterval(() => {
         GetGoal2(data.estSubCount)
       )}`;
     });
-}
-
-setTimeout(() => {
-	getdata(id);
-}, 100);
-
-setTimeout(() => {
-	getdata(id);
-}, 500);
-setInterval(() => {
-	getdata(id);
 }, 2000);
-
 
 function toggleLightMode() {
   document.body.classList.toggle("light");
