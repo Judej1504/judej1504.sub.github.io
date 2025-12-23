@@ -35,10 +35,10 @@ document.getElementById(
 ).href = `https://youtube.com/channel/${id}?sub_confirmation=1`;
 
 setInterval(() => {
-  fetch(`https://subscribercount.app/api/get?platform=youtube&type=channel&id=${id}`)
+  fetch(`https://ests.sctools.org/api/get/${id}`)
     .then((res) => res.json())
     .then((data) => {
-      document.getElementById("name").textContent = data.snippet.title;
+      document.getElementById("name").textContent = info.name;
       document.querySelector(
         '[data-icon="zondicons:checkmark"]'
       ).style.display = data.isStudio ? "block" : "none";
@@ -48,8 +48,8 @@ setInterval(() => {
         data.snippet.thumbnails.high.url ||
         data.snippet.thumbnails.medium.url ||
         data.snippet.thumbnails.default.url;
-      image.alt = data.snippet.title;
-      document.getElementById("subscribers").innerHTML = data.estSubCount;
+      image.alt = info.avatar;
+      document.getElementById("subscribers").innerHTML = stats.estCount;
       document.getElementById("goal").innerHTML = GetGoal(data.estSubCount);
       document.getElementById(
         "goalText"
