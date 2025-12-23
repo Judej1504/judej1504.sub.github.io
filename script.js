@@ -50,11 +50,11 @@ setInterval(() => {
         data.snippet.thumbnails.default.url;
       image.alt = info.avatar;
       document.getElementById("subscribers").innerHTML = stats.estCount;
-      document.getElementById("goal").innerHTML = GetGoal(data.estSubCount);
+      document.getElementById("goal").innerHTML = GetGoal(stats.estCount);
       document.getElementById(
         "goalText"
       ).textContent = `subscribers to ${GetGoalText(
-        GetGoal2(data.estSubCount)
+        GetGoal2(stats.estCount)
       )}`;
     });
 }, 2000);
