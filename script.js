@@ -34,30 +34,25 @@ document.getElementById(
   "subscribeBtn"
 ).href = `https://youtube.com/channel/${id}?sub_confirmation=1`;
 
-setInterval(() => {
-  fetch(`https://ests.sctools.org/api/get/${id}`)
-    .then((res) => res.json())
-    .then((data) => {
-      document.getElementById("name").textContent = info.name;
-      document.querySelector(
-        '[data-icon="zondicons:checkmark"]'
-      ).style.display = data.isStudio ? "block" : "none";
-
-      const image = document.getElementById("image");
-      image.src =
-        data.snippet.thumbnails.high.url ||
-        data.snippet.thumbnails.medium.url ||
-        data.snippet.thumbnails.default.url;
-      image.alt = info.avatar;
-      document.getElementById("subscribers").innerHTML = stats.estCount;
-      document.getElementById("goal").innerHTML = GetGoal(stats.estCount);
-      document.getElementById(
-        "goalText"
-      ).textContent = `subscribers to ${GetGoalText(
-        GetGoal2(stats.estCount)
-      )}`;
-    });
-}, 2000);
+        setInterval(() => {
+                fetch(
+                        `https://huntingstats378.onrender.com/api/youtube/channel/${id}`
+                    )
+                    .then((res) => res.json())
+                    .then((data) => {
+                        document.getElementById("banner").src = data.user[2];
+                        document.getElementById("image").src = data.user[1];
+                        document.getElementById("name").textContent = data.user[0];
+                        document.getElementById("subs").innerHTML = data.counts[0];
+                        if (chart.series[0].points.length == ) chart.series[0].data[0].remove();
+                        chart.series[0].addPoint([Date.now(), data.counts[0]]);
+                        if (id == "UCX6OQ3DkcsbYNE6H8uQQuVA") {
+                        document.getElementById("footer").textContent = "";
+                        } else {
+                        document.getElementById("footer").textContent = data.value[0][1];
+                        }
+                    });
+            }, 2000);
 
 function toggleLightMode() {
   document.body.classList.toggle("light");
