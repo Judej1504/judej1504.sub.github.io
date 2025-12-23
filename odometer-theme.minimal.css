@@ -1,9 +1,7 @@
-body {
-  --odoSpeed: 2s;
-  --colorSpeed: 2s;
-  --color: white;
-  --upColor: lime;
-  --downColor: red;
+:root {
+  --speed: 2s;
+  --up-color: limegreen;
+  --down-color: red;
 }
 
 .odometer.odometer-auto-theme,
@@ -68,15 +66,11 @@ body {
 }
 .odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner,
 .odometer.odometer-theme-minimal.odometer-animating-up .odometer-ribbon-inner {
-  -webkit-transition: -webkit-transform var(--odoSpeed);
-  -moz-transition: -moz-transform var(--odoSpeed);
-  -ms-transition: -ms-transform var(--odoSpeed);
-  -o-transition: -o-transform var(--odoSpeed);
-  transition: transform var(--odoSpeed);
-  animation-name: up;
-  animation-duration: var(--colorSpeed);
-  animation-iteration-count: 2;
-  /* color: lime; */
+  -webkit-transition: -webkit-transform var(--speed);
+  -moz-transition: -moz-transform var(--speed);
+  -ms-transition: -ms-transform var(--speed);
+  -o-transition: -o-transform var(--speed);
+  transition: transform var(--speed);
 }
 .odometer.odometer-auto-theme.odometer-animating-up.odometer-animating
   .odometer-ribbon-inner,
@@ -101,42 +95,14 @@ body {
   .odometer-ribbon-inner,
 .odometer.odometer-theme-minimal.odometer-animating-down.odometer-animating
   .odometer-ribbon-inner {
-  -webkit-transition: -webkit-transform var(--odoSpeed);
-  -moz-transition: -moz-transform var(--odoSpeed);
-  -ms-transition: -ms-transform var(--odoSpeed);
-  -o-transition: -o-transform var(--odoSpeed);
-  transition: transform var(--odoSpeed);
+  -webkit-transition: -webkit-transform var(--speed);
+  -moz-transition: -moz-transform var(--speed);
+  -ms-transition: -ms-transform var(--speed);
+  -o-transition: -o-transform var(--speed);
+  transition: transform var(--speed);
   -webkit-transform: translateY(0);
   -moz-transform: translateY(0);
   -ms-transform: translateY(0);
   -o-transform: translateY(0);
   transform: translateY(0);
-  animation-name: down;
-  animation-duration: var(--colorSpeed);
-  animation-iteration-count: 2;
-  /* color: red; */
-}
-
-@keyframes up {
-  0% {
-    color: var(--color);
-  }
-  50% {
-    color: var(--upColor);
-  }
-  100% {
-    color: var(--color);
-  }
-}
-
-@keyframes down {
-  0% {
-    color: var(--color);
-  }
-  50% {
-    color: var(--downColor);
-  }
-  100% {
-    color: var(--color);
-  }
 }
