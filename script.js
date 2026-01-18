@@ -1,6 +1,6 @@
 const params = new URLSearchParams(window.location.search);
 var id = params.get("id") || "mrbeast";
-var url = `https://backend.instastatistics.com/api/likee/instagramfull/`; 
+var url = `https://mixerno.space/api/instagram-user-counter/user/`; 
 
 const chart = new Highcharts.chart({
 	chart: {
@@ -129,12 +129,12 @@ function getdata(a) {
 	fetch(url + a)
 		.then((res) => res.json())
 		.then((data) => {
-document.getElementById('c').innerHTML = graphql.user.edge_followed_by.count;	
-			document.getElementById("avatar").src = graphql.user.full_name;
-			document.getElementById("title").textContent = graphql.user.profile_pic_url_hd;
+document.getElementById('c').innerHTML = counts[0].count;	
+			document.getElementById("avatar").src = user[1].count;
+			document.getElementById("title").textContent = user[0].count;
 			if (chart.series[0].points.length >= 3600)
 				chart.series[0].data[0].remove();
-			chart.series[0].addPoint([Date.now(), graphql.user.edge_followed_by.count]);
+			chart.series[0].addPoint([Date.now(), counts[0].count]);
 		});
 }
 
