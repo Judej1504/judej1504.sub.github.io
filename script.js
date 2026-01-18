@@ -1,6 +1,6 @@
 const params = new URLSearchParams(window.location.search);
 var id = params.get("id") || "mrbeast";
-var url = `backend.instastatistics.com/api/likee/instagramfull/`; 
+var url = `https://backend.instastatistics.com/api/likee/instagramfull/`; 
 
 const chart = new Highcharts.chart({
 	chart: {
