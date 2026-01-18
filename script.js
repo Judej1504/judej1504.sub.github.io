@@ -153,7 +153,7 @@ function search() {
 	const prompt = window.prompt("Enter channel name, ID, or URL.");
 	if (prompt)
 		fetch(
-			`backend.instastatistics.com/api/likee/instagramfull`
+			`https://mixerno.space/api/youtube-channel-counter/search/${id}`
 			 
 		)
 			.then((res) => res.json())
