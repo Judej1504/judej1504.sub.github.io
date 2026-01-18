@@ -1,6 +1,6 @@
 const params = new URLSearchParams(window.location.search);
 var id = params.get("id") || "mrbeast";
-var url = `https://api-v2.nextcounts.com/api/instagram/user/stats/`; 
+var url = `https://mixerno.space/api/instagram-user-counter/user/`; 
 
 const chart = new Highcharts.chart({
 	chart: {
@@ -129,12 +129,12 @@ function getdata(a) {
 	fetch(url + a)
 		.then((res) => res.json())
 		.then((data) => {
-document.getElementById('c').innerHTML = followers;	
-			document.getElementById("avatar").src = avatar;
-			document.getElementById("title").textContent = nickname;
+document.getElementById('c').innerHTML = counts[0].count;	
+			document.getElementById("avatar").src = user[1].count;
+			document.getElementById("title").textContent = user[0].count;
 			if (chart.series[0].points.length >= 3600)
 				chart.series[0].data[0].remove();
-			chart.series[0].addPoint([Date.now(), followers]);
+			chart.series[0].addPoint([Date.now(), counts[0].count]);
 		});
 }
 
