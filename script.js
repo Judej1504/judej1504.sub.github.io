@@ -129,12 +129,12 @@ function getdata(a) {
 	fetch(url + a)
 		.then((res) => res.json())
 		.then((data) => {
-document.getElementById('c').innerHTML = counts[0].count;	
-			document.getElementById("avatar").src = user[1].count;
-			document.getElementById("title").textContent = user[0].count;
+document.getElementById('c').innerHTML = counts[0].value;	
+			document.getElementById("avatar").src = user[1].value;
+			document.getElementById("title").textContent = user[0].value;
 			if (chart.series[0].points.length >= 3600)
 				chart.series[0].data[0].remove();
-			chart.series[0].addPoint([Date.now(), counts[0].count]);
+			chart.series[0].addPoint([Date.now(), counts[0].value]);
 		});
 }
 
