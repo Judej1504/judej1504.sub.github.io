@@ -1,6 +1,6 @@
 const params = new URLSearchParams(window.location.search);
-var id = params.get("id") || "mrbeast";
-var url = `https://mixerno.space/api/instagram-user-counter/user/`; 
+var id = params.get("id") || "UCX6OQ3DkcsbYNE6H8uQQuVA";
+var url = `https://backend.mixerno.space/api/youtube/estv3/`; 
 
 const chart = new Highcharts.chart({
 	chart: {
@@ -129,12 +129,12 @@ function getdata(a) {
 	fetch(url + a)
 		.then((res) => res.json())
 		.then((data) => {
-document.getElementById('c').innerHTML = counts[0].count;	
-			document.getElementById("avatar").src = user[1].count;
-			document.getElementById("title").textContent = user[0].count;
+document.getElementById('c').innerHTML = data.items[0].statistics.subscriberCount;	
+			document.getElementById("avatar").src = data.items[0].snippet.thumbnails.default.url;
+			document.getElementById("title").textContent = data.items[0].snippet.title;
 			if (chart.series[0].points.length >= 3600)
 				chart.series[0].data[0].remove();
-			chart.series[0].addPoint([Date.now(), counts[0].count]);
+			chart.series[0].addPoint([Date.now(), data.items[0].statistics.subscriberCount]);
 		});
 }
 
